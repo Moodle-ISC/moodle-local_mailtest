@@ -2,8 +2,8 @@
 
 Local eMailTest plugin for Moodle
 =================================
-![PHP](https://img.shields.io/badge/PHP-v5.6%20%2F%20v7.0%20%2F%20v7.1-blue.svg)
-![Moodle](https://img.shields.io/badge/Moodle-v2.5%20to%20v3.5-orange.svg)
+![PHP](https://img.shields.io/badge/PHP-v5.6%20%2F%20v7.0%20%2F%20v7.1%20%2F%20v7.2%20-blue.svg)
+![Moodle](https://img.shields.io/badge/Moodle-v2.5%20to%20v3.7-orange.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/michael-milette/moodle-local_mailtest.svg)](https://github.com/michael-milette/moodle-local_mailtest/issues)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)](#contributing)
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](#license)
@@ -59,7 +59,7 @@ Install the plugin, like any other plugin, to the following folder:
 
     /local/mailtest
 
-See http://docs.moodle.org/35/en/Installing_plugins for details on installing Moodle plugins.
+See http://docs.moodle.org/en/Installing_plugins for details on installing Moodle plugins.
 
 There are no special considerations required for updating the plugin.
 
@@ -137,8 +137,14 @@ http://github.com/michael-milette/moodle-local_mailtest
 ### Why do I get a 500 server error when I use eMailTest?
 
 This plugin has been extensively tested and used on hundreds of sites.
-If you are getting this error, it is likely that you have a permissions
-issue on your server which needs to be resolved.
+If you are getting this error, it is likely that you either:
+* have a permissions issue on your Moodle server which needs to be resolved.
+* Moodle cannot establish a connection to your mail server at all. Suggestions in this situation may include:
+** Ensure that the SMTP server is running at the expected host address and is configured correctly.
+** Verify the host address.
+** Add the port number to the host address (example: smtp.example.com:587)
+** Ensure that there is no firewall between the Moodle server and the SMTP server which may be blocking communications.
+** Ensure that the SMTP server is configured to accept connections from the Moodle server.
 
 ### Why does it say that Moodle sent the test message successfully yet I did not receive the email?
 
@@ -187,7 +193,7 @@ As of Moodle 3.2, use of the no-reply email address is no longer optional in man
 
 ### Why do I see a message about cron not having run for at least 24 hours?
 
-IMPORTANT - See https://docs.moodle.org/35/en/Cron . If a link is included within the message, clicking it will cause Moodle to try sending queued messages immediately. However, future message will still not be sent automatically. Clicking the link instead of configuring cron will just hide the notice for 24 hours after which it will return until you fix this issue.
+IMPORTANT - See https://docs.moodle.org/en/Cron . If a link is included within the message, clicking it will cause Moodle to try sending queued messages immediately. However, future message will still not be sent automatically. Clicking the link instead of configuring cron will just hide the notice for 24 hours after which it will return until you fix this issue.
 
 If for some reason you are unable to setup an automated cron job and don't see the link, you can enable the link and allow remote running of the cron job by going to Site administration >Security > Site Policies and unchecking **Cron execution via command line only**. For a little extra security, also set a **Cron password for remote access**.
 
@@ -246,7 +252,7 @@ http://github.com/michael-milette/moodle-local_mailtest
 
 # License
 
-Copyright © 2015-2018 TNG Consulting Inc. - http://www.tngconsulting.ca/
+Copyright © 2015-2019 TNG Consulting Inc. - http://www.tngconsulting.ca/
 
 This file is part of MailTest/eMailTest for Moodle - http://moodle.org/
 
